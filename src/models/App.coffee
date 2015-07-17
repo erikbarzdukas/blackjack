@@ -5,4 +5,13 @@ class window.App extends Backbone.Model
     @set 'deck', deck = new Deck()
     @set 'playerHand', deck.dealPlayer()
     @set 'dealerHand', deck.dealDealer()
-
+    @get 'playerHand' 
+      .on 'stand', =>
+        console.log @get "dealerHand"
+        @get 'dealerHand' 
+        .at(0)
+        .flip()
+        while @get 'dealerHand'
+        .scores()[1] < 17
+          @get 'dealerHand'
+            .hit()
