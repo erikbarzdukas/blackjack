@@ -9,7 +9,6 @@ describe 'deck', ->
     deck = new Deck()
     hand = deck.dealPlayer()
     dealer = deck.dealDealer()
-    console.log(dealer)
 
   describe 'hit', ->
     it 'should give the last card from the deck', ->

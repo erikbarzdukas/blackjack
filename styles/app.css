@@ -9,6 +9,7 @@
 
 .covered {
   background-color: black;
+  background-image: url('..img/cards/card-back.png');
 }
 
 .hand {
