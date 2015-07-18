@@ -4,9 +4,14 @@ class window.HandView extends Backbone.View
   template: _.template '<h2><% if(isDealer){ %>Dealer<% }else{ %>You<% } %> (<span class="score"></span>)</h2>'
 
   initialize: ->
-    @collection.on 'add remove flip change', => @render()
+    @collection.on 'add remove flip change', => 
+      @render()
+      if !@collection.isDealer and @collection.scores()[0] > 21
+        @collection.busted()
+      else if @collection.isDealer and @collection.scores()[1] > 21
+        @collection.busted()
+      else console.log "fall through"
     @render()
-
   render: ->
     @$el.children().detach()
     @$el.html @template @collection

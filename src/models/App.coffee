@@ -36,13 +36,13 @@ class window.App extends Backbone.Model
       playerScore = playerScore[0]
 
     if playerScore > 21
-      alert "You Busted! - Dealer wins!"
+      $('#result').text "You Busted! - Dealer wins!"
     else if dealerScore > 21
-      alert "Dealer busted - You win!"
+      $('#result').text "Dealer busted - You win!"
 
     else if dealerScore == playerScore
-      alert "Tie Game!"
+      $('#result').text "Tie Game!"
     else if dealerScore > playerScore
-      alert "Dealer Won!"
+      $('#result').text "Dealer Won!"
     else
-      alert "You Win!"
+      $('#result').text "You Win!"
