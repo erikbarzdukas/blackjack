@@ -14,6 +14,13 @@ class window.HandView extends Backbone.View
       new CardView(model: card).$el
     if @collection.isDealer
       @$('.score').text @collection.scores()[1]
+      # if @collection.scores()[1] > 21
+      #   if !alert "Dealer Busted!"
+      #     @collection.busted()
     else
       @$('.score').text @collection.scores()[0]
+      # if @collection.scores()[0] > 21
+      #   if !alert "You Busted!"
+      #     @collection.busted()
+
 

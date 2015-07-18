@@ -15,3 +15,34 @@ class window.App extends Backbone.Model
         .scores()[1] < 17
           @get 'dealerHand'
             .hit()
+        # if ! @get 'dealerHand'
+        # .scores()[1] > 21
+        @declareWinner()
+
+    @get 'playerHand'
+    .on 'busted', =>
+      @declareWinner()
+
+  declareWinner : =>
+    dealerScore = @get 'dealerHand'
+    .scores()[1]
+
+    playerScore = @get 'playerHand'
+    .scores()
+
+    if playerScore[1] <= 21
+      playerScore = playerScore[1]
+    else 
+      playerScore = playerScore[0]
+
+    if playerScore > 21
+      alert "You Busted! - Dealer wins!"
+    else if dealerScore > 21
+      alert "Dealer busted - You win!"
+
+    else if dealerScore == playerScore
+      alert "Tie Game!"
+    else if dealerScore > playerScore
+      alert "Dealer Won!"
+    else
+      alert "You Win!"
