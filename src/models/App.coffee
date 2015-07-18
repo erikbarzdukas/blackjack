@@ -46,3 +46,24 @@ class window.App extends Backbone.Model
       $('#result').text "Dealer Won!"
     else
       $('#result').text "You Win!"
+
+  playAgain: =>
+    @get('dealerHand').reset()
+    @get('playerHand').reset()
+
+    if @get('deck').length < 16
+      @set 'deck', deck = new Deck()
+    else deck = @get('deck')
+
+    newPlayerHand = deck.dealPlayerAgain()
+
+    @get('playerHand').add(newPlayerHand[0])
+    @get('playerHand').add(newPlayerHand[1])
+
+    newDealerHand = deck.dealDealerAgain()
+    @get('dealerHand').add(newDealerHand[0])
+    @get('dealerHand').add(newDealerHand[1])
+
+    $('#result').text('')
+
+
