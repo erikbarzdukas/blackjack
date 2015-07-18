@@ -1,3 +1,18 @@
+body {
+  padding-top: 50px;
+  position: absolute;
+  background-color: green;
+  background-image: url('../img/background.jpg');
+  color: white;
+  text-align: center;
+}
+
+.game-container {
+  position: relative;
+  margin-left: 500px;
+  width: 100%;
+}
+
 .card {
   float: left;
   border: solid 1px black;
@@ -14,4 +29,18 @@
 
 .hand {
   overflow: auto;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.hit-button,
+.stand-button {
+  font-size: 18px;
+}
+
+#result {
+  display: inline-block;
+  padding-left: 10px;
+  font-size: 18px;
+  font-weight: bold;
 }
